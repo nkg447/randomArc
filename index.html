@@ -17,12 +17,16 @@
          	var c = document.getElementById("myCanvas");
          	var ctx = c.getContext("2d");
              
+              //width and height of the window
+         	var width = window.innerWidth-20;
+         	var height = window.innerHeight-20;
+             
+             //set the width and height of canvas
+             c.setAttribute("width",width);
+             c.setAttribute("height",height);
+                          
              //stroke style
          	ctx.strokeStyle=strokeColor[colorNo];
-             
-             //width and height of the canvas
-         	var width = c.getAttribute("width");
-         	var height = c.getAttribute("height");
              
              // centre of the canvas 
          	var centrex=width/2;
@@ -81,8 +85,6 @@
              
          }
          	
-         
-         
       </script> 
    </body>
 </html>
