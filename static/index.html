@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+   <title>RandomArc-nikunj</title>
+   <body>
+      <canvas id="myCanvas" width="1350" height="650" style="border:1px solid #d3d3d3;" onClick = "createCircles()">
+         Your browser does not support the HTML5 canvas tag.
+      </canvas>
+      <script>
+         createCircles();
+            
+         function createCircles(){
+            var strokeColor = ['#bffce6','#fa2147','#3aa4a2','#008080','#9896A4','#71CC51'];
+            var fillColor = ['#734941','#85fc6c','#447d91','#19455c','#ea4951','#6F1929'];
+             
+             var colorNo =Math.floor(Math.random()*10%6);
+             
+             //get context to the canvas
+         	var c = document.getElementById("myCanvas");
+         	var ctx = c.getContext("2d");
+             
+              //width and height of the window
+         	var width = window.innerWidth-20;
+         	var height = window.innerHeight-20;
+             
+             //set the width and height of canvas
+             c.setAttribute("width",width);
+             c.setAttribute("height",height);
+                          
+             //stroke style
+         	ctx.strokeStyle=strokeColor[colorNo];
+             
+             // centre of the canvas 
+         	var centrex=width/2;
+         	var centrey=height/2;
+             
+             //line Width if the line of circle
+         	var lineWidth = 5+Math.random()*10%7;
+             ctx.lineWidth=lineWidth;
+             
+             //clear canvas
+         	ctx.clearRect(0, 0, width, height);
+             
+             //fill background color to the canvas
+         	ctx.fillStyle = fillColor[colorNo];
+         	ctx.fillRect(0,0,width,height);
+             
+             //begin the draw
+         	ctx.beginPath();
+             
+             //inicialize the variables
+         	var x=0,y=0;
+         	var radius = 0;
+         	var counter=false;
+         	var start = 0;
+         	var end=0;
+             
+             //number of circles
+         	var circles = Math.random()*100;
+             
+             //create circles
+         	for(i=0;i<40;i++){
+                 
+                 //end point of circle
+         		end = Math.random()*10%6;
+                 
+                 //create arc from start to end
+         		ctx.arc(centrex, centrey, radius, start, end, counter);
+                 
+                 //centre point to reverse the arcs
+         		x = centrex + (radius+lineWidth)*Math.cos(end);
+         		y = centrey + (radius+lineWidth)*Math.sin(end);
+                 
+                 //create the semicircle to reverse the direction
+         		ctx.arc(x, y, lineWidth, end + Math.PI,end, !counter);
+                 
+                 //getting variables ready for next arc
+                 counter = !counter;
+         		start = end;
+         		radius = radius + lineWidth*2;
+                 
+             }
+             //create the last arc
+         	end = Math.random()*10%6;
+         	ctx.arc(centrex, centrey, radius, start, end, counter);
+            ctx.stroke();
+             
+         }
+         	
+      </script> 
+   </body>
+</html>
