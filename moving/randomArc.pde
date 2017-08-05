@@ -70,6 +70,7 @@ void mousePressed(){
   radius = 10;
   lineWidth = 1;
   start = 0;
+  circleCount = 0;
   end=int(random(360));
   //println("start - "+width+" end - "+height);
   strokeWeight(lineWidth);
