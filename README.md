@@ -1,2 +1,2 @@
 # RandomArc
-visit [nkg447.github.io/randomArc](nkg447.github.io/randomArc)
+visit [https://nkg447.github.io/randomArc/](https://nkg447.github.io/randomArc/)
